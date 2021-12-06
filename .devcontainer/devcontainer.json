@@ -22,5 +22,8 @@
 		"humao.rest-client",
 		"wayou.vscode-icons-mac",
 		"tabnine.tabnine-vscode"
+	],
+	"forwardPorts": [
+		3000
 	]
 }
