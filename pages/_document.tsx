@@ -7,7 +7,7 @@ class MyDocument extends Document {
   render(): ReactElement {
     return (
       <Html>
-        <Head>this.script</Head>
+        <Head>{this.script}</Head>
         <body>
           <Main />
           <NextScript />
