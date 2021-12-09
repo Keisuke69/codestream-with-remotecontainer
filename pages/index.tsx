@@ -5,6 +5,10 @@ import Image from "next/image";
 // import { newrelic } from "newrelic";
 
 export const getServerSideProps = async () => {
+  const err = new SyntaxError("This is sample error");
+  const newrelic = require("newrelic");
+  newrelic.noticeError(err);
+
   const url = "https://thatcopy.pw/catapi/rest/";
   const res = await axios.get(url).catch((err) => {
     return err.response;
@@ -12,10 +16,6 @@ export const getServerSideProps = async () => {
 
   const catUrl = await res.data.url;
 
-  const err = new SyntaxError("This is sample error");
-  const newrelic = require("newrelic");
-  newrelic.noticeError(err);
-  
   return {
     props: {
       url: catUrl,
@@ -26,7 +26,7 @@ export const getServerSideProps = async () => {
 const Home = ({ url }: { url: string }) => {
   return (
     <div>
-      <Image src={url} alt="cat" layout="fill"></Image>
+      <Image src={url} alt="cat" layout="fixed"></Image>
     </div>
   );
 };
