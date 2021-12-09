@@ -5,7 +5,7 @@ import Image from "next/image";
 // import { newrelic } from "newrelic";
 
 export const getServerSideProps = async () => {
-  const err = new SyntaxError("This is sample error");
+  const err = new SyntaxError("This is a sample error");
   const newrelic = require("newrelic");
   newrelic.noticeError(err);
 
